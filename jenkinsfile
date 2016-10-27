@@ -1,6 +1,14 @@
 node {
-	stage 'Stage1'
-		echo 'Got the first stage!'
-	stage 'Stage2'
-		echo 'Got the second stage!'
+	stage 'Pre'
+		echo 'Here is the first stage!'
+	stage 'Build'
+		echo 'Running openshift ruby sample app build!'
+		openshiftBuild(buildConfig: 'ruby-sample-build', showBuildLogs: 'true')
+}
+stage 'Review'
+	echo 'Puasing at this stage for review'
+	input 'Do you approve of the build?'
+node {
+	stage 'Deploy'
+		openshiftDeploy(deploymentConfig: 'frontend')
 }
