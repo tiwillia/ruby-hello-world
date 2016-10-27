@@ -1,0 +1,10 @@
+stage('Stage1') {
+	node {
+		echo 'Got the first stage!'
+	}
+}
+stage('Stage2') {
+	node {
+		echo 'Got the second stage!'
+	}
+}
