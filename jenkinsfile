@@ -1,10 +1,6 @@
-stage('Stage1') {
-	node {
+node {
+	stage 'Stage1'
 		echo 'Got the first stage!'
-	}
-}
-stage('Stage2') {
-	node {
+	stage 'Stage2'
 		echo 'Got the second stage!'
-	}
 }
